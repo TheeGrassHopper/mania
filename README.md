@@ -27,4 +27,3 @@ From a command line:
 ```
   bower install
 ```
-# mania

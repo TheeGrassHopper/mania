@@ -13,7 +13,7 @@ angular
     'ngRoute',
     'ngSanitize'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -23,7 +23,17 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/movie/:id/:slug', {
+        templateUrl: 'views/singlemovie.html',
+        controller: 'MovieCtrl'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+    $locationProvider.hashPrefix('!');
   });
